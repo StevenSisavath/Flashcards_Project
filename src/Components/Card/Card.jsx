@@ -2,7 +2,9 @@
 
 const Card = (props) => {
     return ( 
-        <div></div>
+        <div>
+            {props.flashcard.word}
+        </div>
      );
 }
  

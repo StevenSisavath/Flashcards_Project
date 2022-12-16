@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SideBar from './Components/SideBar/SideBar';
 import axios from "axios";
+import CardList from './Components/CardList/CardList';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   return (
     <div>
       <SideBar/>
+      <CardList flashcards = {flashcards} />
     </div>
   );
 }
