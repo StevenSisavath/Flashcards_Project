@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Collection from "../Collection/Collection";
 
+
 const SideBar = (props) => {
     const [collections, setCollections] = useState([])
 

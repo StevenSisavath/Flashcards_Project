@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SideBar from './Components/SideBar/SideBar';
 import axios from "axios";
 import CardList from './Components/CardList/CardList';
-
+import './App.css'
 
 function App() {
   const [flashcards, setFlashcards] = useState([])
