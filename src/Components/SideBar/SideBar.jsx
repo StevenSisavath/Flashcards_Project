@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 
 const SideBar = (props) => {
-    const[collectionId, setCollectionId]= useState(0)
 
-    function handleSubmit(event){
-        event.preventDefault();
-        props.selectCollection(collectionId)
+  useEffect(()=>{
+    console.log("PROPS IN X COMPONENT: ",props)
+  },[props])
+
+    function handleClick(collection){
+      props.setCollection(collection.id)
     }
 
     return ( 
-        <div onSubmit={handleSubmit}>
+        <div className='sidebar'>
           {props.parentCollections.map((collection) => {
               return (
                 <div key={collection.id}>
-                  <div>{collection.id}</div>
-                  <button type='submit' onChange={(event) => setCollectionId(event.target.value)}>{collection.title}</button>
+                  <h1 onClick={()=>handleClick(collection)}>{collection.title}</h1>
                 </div>
               );
           })}
