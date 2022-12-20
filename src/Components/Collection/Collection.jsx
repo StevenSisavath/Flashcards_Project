@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 
-
-
 const Collection = (props) => {
-    const[collectionId, setCollectionId]= useState(0)
-
-    function getCollectionId(){
-        setCollectionId()
-    }
 
     return ( 
         <table>

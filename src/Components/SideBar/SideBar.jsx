@@ -1,23 +1,25 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import Collection from "../Collection/Collection";
+import React, { useState } from 'react';
 
 
 const SideBar = (props) => {
-    const [collections, setCollections] = useState([])
+    const[collectionId, setCollectionId]= useState(0)
 
-    useEffect(() => {
-        fetchCollections();
-      }, []);
-      
-      const fetchCollections = async () => {
-        let response = await axios.get("http://127.0.0.1:8000/api/collections/")
-        console.log(response.data)
-        setCollections(response.data)
-      };
+    function handleSubmit(event){
+        event.preventDefault();
+        props.selectCollection(collectionId)
+    }
 
     return ( 
-        <Collection parentCollections={collections}/>
+        <div onSubmit={handleSubmit}>
+          {props.parentCollections.map((collection) => {
+              return (
+                <div key={collection.id}>
+                  <div>{collection.id}</div>
+                  <button type='submit' onChange={(event) => setCollectionId(event.target.value)}>{collection.title}</button>
+                </div>
+              );
+          })}
+        </div>
      );
 }
  
